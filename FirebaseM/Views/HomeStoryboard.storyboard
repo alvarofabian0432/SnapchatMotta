@@ -111,7 +111,7 @@
         <!--User Profile-->
         <scene sceneID="ss1-mV-pPc">
             <objects>
-                <viewController title="User Profile" id="Atz-VF-ENZ" customClass="SnapsViewController" customModule="FirebaseM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="User Profile" automaticallyAdjustsScrollViewInsets="NO" id="Atz-VF-ENZ" customClass="SnapsViewController" customModule="FirebaseM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PUT-jC-d9V">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,6 +137,9 @@
                     <tabBarItem key="tabBarItem" title="Contactos" image="contact-book" id="4D6-Rg-UBU">
                         <color key="badgeColor" systemColor="labelColor"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="tableView" destination="yPZ-kQ-fyn" id="Tm2-x2-XZO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dY3-ZT-avi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

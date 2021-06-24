@@ -26,7 +26,8 @@ class ImagenViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as! UIImage
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        let url = info[UIImagePickerController.InfoKey.imageURL] as! URL
         imageView.image = image
         imageView.backgroundColor = UIColor.clear
         imagePicker.dismiss(animated: true, completion: nil)
@@ -40,21 +41,22 @@ class ImagenViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func elegirContactoTapped(_ sender: Any) {
         elegirContactoBoton.isEnabled = false
-        let imagenesFolder = Storage.storage().reference().child("imagenes")
         let imagenData = imageView.image!.pngData()!
+        let imagenesFolder = Storage.storage().reference().child("imagenes")
+        
         
         imagenesFolder.child("\(NSUUID().uuidString).jpg").putData(imagenData, metadata: nil, completion:{(metadata, error) in
-            print("Intentando subir la imagen")
-            if error != nil{
-                print("Ocurrió un error: \(String(describing: error))")
-            }else{
-                self.performSegue(withIdentifier: "seleccionarContactoSegue", sender: nil)
+            imagenesFolder.downloadURL {url, error in
+                guard let url = url else {return}
+                self.performSegue(withIdentifier: "seleccionarContactoSegue", sender: url.absoluteString)
             }
         })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        let nextVC = segue.destination as! ElegirUsuarioViewController
+        nextVC.imageFire = sender as! String
+        nextVC.descripcionn = descripcionTextField.text!
         
     }
 

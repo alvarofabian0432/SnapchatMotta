@@ -8,11 +8,11 @@
 import UIKit
 
 class SnapsViewController: UIViewController {
-
+    @IBOutlet weak var tableView: UITableView!
+    var snaps: [Snap] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
     
     @IBAction func cerrarSesionTapped(_ sender: Any) {

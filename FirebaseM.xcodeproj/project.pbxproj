@@ -24,6 +24,7 @@
 		7D481DDF266420C600FC32BB /* ElegirUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D481DDE266420C600FC32BB /* ElegirUsuarioViewController.swift */; };
 		7D481E2B267AAE4A00FC32BB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D481E2A267AAE4A00FC32BB /* User.swift */; };
 		7D481E2E267AB1C300FC32BB /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D481E2D267AB1C300FC32BB /* Usuario.swift */; };
+		7D481E51267BB40A00FC32BB /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D481E50267BB40A00FC32BB /* Snap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		7D481DDE266420C600FC32BB /* ElegirUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElegirUsuarioViewController.swift; sourceTree = "<group>"; };
 		7D481E2A267AAE4A00FC32BB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7D481E2D267AB1C300FC32BB /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		7D481E50267BB40A00FC32BB /* Snap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
 		7DDD1FDFDA4CF63C39AA81B4 /* Pods_FirebaseM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D197392B110C7349C044810C /* Pods-FirebaseM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseM.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseM/Pods-FirebaseM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 			children = (
 				7D481E2A267AAE4A00FC32BB /* User.swift */,
 				7D481E2D267AB1C300FC32BB /* Usuario.swift */,
+				7D481E50267BB40A00FC32BB /* Snap.swift */,
 			);
 			path = Modelos;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				7D481D1F264D763D00FC32BB /* AppDelegate.swift in Sources */,
 				7D481D21264D763D00FC32BB /* SceneDelegate.swift in Sources */,
 				7D481E2E267AB1C300FC32BB /* Usuario.swift in Sources */,
+				7D481E51267BB40A00FC32BB /* Snap.swift in Sources */,
 				7D481D59265F67DB00FC32BB /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
