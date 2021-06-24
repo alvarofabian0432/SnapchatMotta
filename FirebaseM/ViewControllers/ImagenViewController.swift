@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseDatabase
 import FirebaseStorage
 
@@ -17,10 +16,12 @@ class ImagenViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var elegirContactoBoton: UIButton!
     
     var imagePicker = UIImagePickerController()
+    var imageID = NSUUID().uuidString
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        elegirContactoBoton.isEnabled = false
 
         // Do any additional setup after loading the view.
     }
@@ -30,6 +31,7 @@ class ImagenViewController: UIViewController, UIImagePickerControllerDelegate, U
         let url = info[UIImagePickerController.InfoKey.imageURL] as! URL
         imageView.image = image
         imageView.backgroundColor = UIColor.clear
+        elegirContactoBoton.isEnabled = true
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
@@ -41,22 +43,21 @@ class ImagenViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func elegirContactoTapped(_ sender: Any) {
         elegirContactoBoton.isEnabled = false
-        let imagenData = imageView.image!.pngData()!
         let imagenesFolder = Storage.storage().reference().child("imagenes")
+        let imagenData = imageView.image!.pngData()!
         
         
         imagenesFolder.child("\(NSUUID().uuidString).jpg").putData(imagenData, metadata: nil, completion:{(metadata, error) in
-            imagenesFolder.downloadURL {url, error in
-                guard let url = url else {return}
-                self.performSegue(withIdentifier: "seleccionarContactoSegue", sender: url.absoluteString)
+            print("Intentando subir imagen")
+            if error != nil {
+                print("Ocurrió un error: \(String(describing: error))")
+            }else {
+                self.performSegue(withIdentifier: "seleccionarContactoSegue", sender: nil)
             }
         })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextVC = segue.destination as! ElegirUsuarioViewController
-        nextVC.imageFire = sender as! String
-        nextVC.descripcionn = descripcionTextField.text!
         
     }
 

@@ -15,6 +15,7 @@ class ElegirUsuarioViewController: UIViewController, UITableViewDataSource, UITa
     var usuarios : [Usuario] = []
     var imageFire = ""
     var descripcionn = ""
+    var imageID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
